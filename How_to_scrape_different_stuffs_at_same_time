@@ -1,0 +1,48 @@
+This is a proper way about how to scrape file at the same time, of course you can scrape them in different computers, but here is one solution to scrape them in one computer.
+
+I use selenum to scrape the data. Here it is the solution.
+
+
+1. Go to the C drive, and copy the 'selenum' repository and rename it like selenum_1 and paste it to C:\, and then put the following line to the search bar of windows, then click chrome and run it, then you will sucessfully 
+open a new chrome page.
+
+
+chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\selenum\AutomationProfile
+
+Here you have user-data-dir path of selenum
+
+2. Then if you want to open a new chrome to scrape another project, you just need to change the user-data-dir to the one you have renamed and pasted, like I changed it to selenum_1 and the portal id (any 4 digits number)
+
+chrome.exe --remote-debugging-port=9555 --user-data-dir="C:\selenum_1\AutomationProfile
+
+
+3. Then for each chrome page, you can run the following code in python, and then for these two pages, you can handle different scraping projects at the same time!
+
+(1) Chrome 1 
+
+        socket.setdefaulttimeout(30)  # set the max loading time 30
+        chrome_options = Options()
+        chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+        chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver11.exe"
+        chrome_options.add_argument("user-agent= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36")    
+        driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
+        agent = driver.execute_script("return navigator.userAgent")
+ 
+         link = 'https://www.glassdoor.com/Explore/browse-companies.htm?overall_rating_low=0&page=18&isHiringSurge=0'
+        driver.get(link)
+
+ (2) Chrome 2 
+ 
+        socket.setdefaulttimeout(150)  # set the max loading time 30
+        chrome_options = Options()
+        chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9555")
+        chrome_driver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver11.exe"
+        chrome_options.add_argument("user-agent= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36")    
+        driver = webdriver.Chrome(chrome_driver,  chrome_options=chrome_options)
+        agent = driver.execute_script("return navigator.userAgent")     
+
+
+        link = 'https://www.caimogu.net/poe/garden.html'
+        driver.get(link)
+
+
