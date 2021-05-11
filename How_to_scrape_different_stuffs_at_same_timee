@@ -1,0 +1,12 @@
+This is a proper way to how to scrape file at the same time, of course you can scrape them in different computers, but here is one solution to scrape them in one computer.
+<br>
+I use selenum to scrape the data. Here it is the solution.
+<br>
+
+1. Go to the C drive, and copy the 'selenum' repository and rename it like selenum_1 and paste it to C:\, and then put the following line to the search bar of windows, then click chrome and run it, then you will sucessfully 
+open a new chrome page.
+
+
+chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\selenum\AutomationProfile
+
+Here you have user-data-dir path of selenum
