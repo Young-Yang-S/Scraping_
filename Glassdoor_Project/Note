@@ -1,0 +1,12 @@
+This file contains a project of scraping all the reviews for companies in glassdoor which have ticker.
+The glassdoor_code file is the code about how to scrape the reviews of company and the glassdoor_get_link file is the code about how to get the review and overview list of companies in glassdoor.
+I also attached a csv file  which contains the 1000 companies' review and overview link. We can use this file as the input of glassdoor_code file.
+And I also attached the example of scraped data based on this code.
+
+Besides, there are several things which should be claimed here.
+1. There are some problems of this scraping file. Because of the strong anti-scraping method Glassdoor has, for the company which has a lot of reviews (like more than 15K reviews), this code can't be run properly because 
+the glassdoor server will shut down the connection. I don't find a proper way to handle it, but for company with fewer reivews, it could be done with no errors. And one possible solution for the big company is to divide it into
+many pieces and get them separately. 
+2. This code has been applied and nearly 900 companies are scraped properly, if anyone is interested in these companies reviews, I can send it to you.
+3. This is a simple scraping project which can be improved a lot, this is a big project and I don't solve it completely but mostly, if anyone who is interested in the scraping, we can talk about it. lol, it is funny. 
+
